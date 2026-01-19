@@ -17,9 +17,11 @@ func main() {
 }
 
 func activate(app *gtk.Application) {
-	window := gtk.NewApplicationWindow(app)
-	window.SetTitle("gotk4 Example")
-	window.SetChild(gtk.NewLabel("Hello from Kris!"))
-	window.SetDefaultSize(400, 300)
+	builder := gtk.NewBuilderFromFile("./UI/main_ui.xml")
+
+	window := builder.GetObject("MainWindow").Cast().(*gtk.Window)
+
+	app.AddWindow(window)
+
 	window.SetVisible(true)
 }
