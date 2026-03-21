@@ -30,6 +30,12 @@
                             </object>
                         </child>
                         <child>
+                            <object class="GtkLabel" id="enter_values_label">
+                                <property name="label">Enter your matrix values</property>
+                                <property name="visible">False</property>
+                            </object>
+                        </child>
+                        <child>
                             <object class="GtkGrid" id="grid_mtx">
                             </object>
                         </child>

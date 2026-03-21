@@ -37,7 +37,15 @@ func build_matrix(builder *gtk.Builder) {
 	cols_txt := builder.GetObject("mtx_cols").Cast().(*gtk.Text)
 	cols, _ := strconv.Atoi(cols_txt.Text())
 
+	values_label := builder.GetObject("enter_values_label").Cast().(*gtk.Label)
+	values_label.SetVisible(true)
+
 	mtxGrid := builder.GetObject("grid_mtx").Cast().(*gtk.Grid)
+
+	for child := mtxGrid.FirstChild(); child != nil; child = mtxGrid.NextSibling() {
+		mtxGrid.Remove(child)
+	}
+
 	for i := 0; i < row; i++ {
 		for j := 0; j < cols; j++ {
 			entry := gtk.NewEntry()
