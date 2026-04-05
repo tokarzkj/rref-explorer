@@ -42,7 +42,8 @@ func build_matrix(builder *gtk.Builder) {
 
 	mtxGrid := builder.GetObject("grid_mtx").Cast().(*gtk.Grid)
 
-	for child := mtxGrid.FirstChild(); child != nil; child = mtxGrid.NextSibling() {
+	//
+	for child := mtxGrid.FirstChild(); child != nil; child = mtxGrid.FirstChild() {
 		mtxGrid.Remove(child)
 	}
 
